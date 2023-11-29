@@ -22,26 +22,17 @@ namespace L27_shiftArrayValues
 
             for (int i = 0; i < shiftLength; i++)
             {
-                int tempNumber = 0;
+                int tempNumber = mainArray[1];
+                mainArray[1] = mainArray[0];
 
-                for (int j = 0; j < mainArray.Length; j++)
+                for (int j = 1; j < mainArray.Length - 1; j++)
                 {
-                    if (j == 0)
-                    {
-                        tempNumber = mainArray[j + 1];
-                        mainArray[j + 1] = mainArray[j];
-                    }
-                    else if (j < mainArray.Length - 1)
-                    {
-                        tempNumber += mainArray[j + 1];
-                        mainArray[j + 1] = tempNumber - mainArray[j + 1];
-                        tempNumber -= mainArray[j + 1];
-                    }
-                    else if (j == mainArray.Length - 1)
-                    {
-                        mainArray[0] = tempNumber;
-                    }
+                    tempNumber += mainArray[j + 1];
+                    mainArray[j + 1] = tempNumber - mainArray[j + 1];
+                    tempNumber -= mainArray[j + 1];
                 }
+
+                mainArray[0] = tempNumber;
             }
 
             Console.WriteLine($"\n\nМассив после сдвига на {shiftLength} порядков в право.");
