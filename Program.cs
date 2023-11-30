@@ -14,7 +14,7 @@ namespace L27_shiftArrayValues
             int shiftLength;
 
             Console.Write("На сколько порядков нужно сдвинуть массив: ");
-            shiftLength = Convert.ToInt32(Console.ReadLine());
+            shiftLength = Convert.ToInt32(Console.ReadLine()) % mainArray.Length;
             Console.WriteLine("\nМассив до сдвига:");
 
             foreach (var item in mainArray)
